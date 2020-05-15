@@ -4,7 +4,7 @@
         </a>
 
         <a class="navbar-brand" href="#">
-            <img src="admin/assets/dist/imgs/logo.png" alt="logo">
+            <img src="admin/assets/src/imgs/logo.png" alt="logo">
         </a>
 
         <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
@@ -14,7 +14,7 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="admin/assets/dist/imgs/avatar-1.png" class="avatar avatar-sm" alt="logo">
+                    <img src="admin/assets/src/imgs/avatar-1.png" class="avatar avatar-sm" alt="logo">
                     <span class="small ml-1 d-md-down-none">{{Auth::user()->name}}</span>
                 </a>
 
