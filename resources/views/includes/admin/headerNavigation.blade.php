@@ -3,8 +3,8 @@
             <i class="fa fa-bars"></i>
         </a>
 
-        <a class="navbar-brand" href="#">
-            <img src="admin/assets/src/imgs/logo.png" alt="logo">
+        <a class="navbar-brand" href="{{url('/')}}">
+            <img src="{{asset('admin/assets/src/imgs/logo.png')}}" alt="logo">
         </a>
 
         <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
@@ -12,16 +12,18 @@
         </a>
 
         <ul class="navbar-nav ml-auto">
+            @if(Auth::user()->author == true)
+            <a href="{{route('newPost')}}" class="btn btn-primary">New Post</a> |
+            @endif
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="admin/assets/src/imgs/avatar-1.png" class="avatar avatar-sm" alt="logo">
+                    <img src="{{asset('admin/assets/src/imgs/avatar-1.png')}}" class="avatar avatar-sm" alt="logo">
                     <span class="small ml-1 d-md-down-none">{{Auth::user()->name}}</span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-header">Account</div>
-
-                    <a href="#" class="dropdown-item">
+                     <a onclick="document.getElementById('profile-form').submit();" href="{{route('userprofilePost')}}" class="dropdown-item">
                         <i class="fa fa-user"></i> Profile
                     </a>
                     <form method="POST" id="logout-form" action="{{route('logout')}}">@csrf</form> 

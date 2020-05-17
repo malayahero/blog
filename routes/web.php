@@ -23,6 +23,7 @@ Route::get('dashboard', 'HomeController@index')->name('dashboard');
 Route::prefix('user')->group(function(){
 	Route::get('dashboard','UserController@dashboard')->name('userDashboard');
 	Route::get('comments','UserController@comments')->name('userComments');
+	Route::post('comments/{id}/delete','UserController@deleteComment')->name('deleteComment');
 	Route::get('profile','UserController@profile')->name('userProfile');
 	Route::post('profile','UserController@profilePost')->name('userprofilePost');
 });
@@ -30,12 +31,14 @@ Route::prefix('user')->group(function(){
 Route::prefix('author')->group(function(){
 	Route::get('dashboard','AuthorController@dashboard')->name('authorDashboard');
 	Route::get('posts','AuthorController@posts')->name('authorPosts');
+	Route::get('posts/new','AuthorController@newPost')->name('newPost');
+	Route::post('posts/new','AuthorController@createPost')->name('createPost');
 	Route::get('comments','AuthorController@comments')->name('authorComments');
 });
 
 Route::prefix('admin')->group(function(){
 	Route::get('dashboard','AdminController@dashboard')->name('adminDashboard');
-	Route::get('posts','UserController@posts')->name('adminPosts');
-	Route::get('comments','UserController@comments')->name('adminComments');
-	Route::get('users','UserController@user')->name('adminUsers');
+	Route::get('posts','AdminController@posts')->name('adminPosts');
+	Route::get('comments','AdminController@comments')->name('adminComments');
+	Route::get('users','AdminController@user')->name('adminUsers');
 });
