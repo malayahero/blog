@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UserUpdate;
 use App\Http\Requests\CreatePost;
 use App\Post;
 use App\Comment;
@@ -34,7 +35,7 @@ class AuthorController extends Controller
     public function newPost(){
         return view('author.newPost');
     }
-    public function createPost(createPost Request){
+    public function createPost(CreatePost $request){
         $post = new Post();
         $post->title = $request['title'];
         $post->content = $request['content'];
