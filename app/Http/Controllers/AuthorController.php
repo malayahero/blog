@@ -34,7 +34,7 @@ class AuthorController extends Controller
     public function newPost(){
         return view('author.newPost');
     }
-    public function createPost(createPost $request){
+    public function createPost(createPost Request){
         $post = new Post();
         $post->title = $request['title'];
         $post->content = $request['content'];

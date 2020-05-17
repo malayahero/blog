@@ -23,7 +23,7 @@ class UserController extends Controller
   	public function profile(){
   		return view('user.profile');
   	}
-  	public function profilePost(UserUpdate $request){
+  	public function profilePost(Request $request){
   		// return view('');
   		$user = Auth::user();
   		$user->name = $request['name'];
