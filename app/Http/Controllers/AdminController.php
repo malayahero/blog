@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Post;
 class AdminController extends Controller
 {
     //
@@ -15,7 +15,18 @@ class AdminController extends Controller
     	return view('admin.dashboard');
     }
      public function posts(){
-        return view('admin.posts');
+        $posts = Post::all();
+        return view('admin.posts',compact('posts'));
+    }
+    public function postEdit($id){
+
+    }
+    public function postEditPost($id){
+
+    }
+
+    public function deletePost($id){
+
     }
 
     public function comments(){
