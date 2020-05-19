@@ -26,13 +26,13 @@
                                     	@foreach($posts as $post)
                                     <tr>
                                         <td>{{$post->id}}</td>
-                                        <td class="text-nowrap"><a href="{{route('adminPostEdit',$post->id)}}">{{$post->title}}</a></td>
+                                        <td class="text-nowrap"><a href="{{route('singlePost',$post->id)}}">{{$post->title}}</a></td>
                                         <td>{{\Carbon\Carbon::parse($post->created_at)->diffForHumans()}}</td>
                                         <td>{{\Carbon\Carbon::parse($post->updated_at)->diffForHumans()}}</td>
                                         <td>{{$post->comments->count()}}</td>
                                         <td>
-                                        <a href="{{route('editPost', $post->id)}}" class="btn btn-warning">Edit</a>
-                                        <form method="POST" id="deletePost-{{$post->id}}" action="{{route('deletePost',$post->id)}}">@csrf</form>
+                                        <a href="{{route('adminPostEdit', $post->id)}}" class="btn btn-warning">Edit</a>
+                                        <form method="POST" id="deletePost-{{$post->id}}" action="{{route('adminDeletePost',$post->id)}}">@csrf</form>
                                         <a href="#" onclick="document.getElementById('deletePost-{{$post->id}}').submit()" class="btn btn-danger">Remove</a>
                                         </td>
                                     </tr>
