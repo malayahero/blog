@@ -25,7 +25,7 @@ class CreatePost extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'content' => 'required|string',
+            'content' => 'required',
         ];
     }
 }
