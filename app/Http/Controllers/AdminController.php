@@ -45,10 +45,39 @@ class AdminController extends Controller
     }
 
     public function comments(){
-        return view('admin.comments');    	
+        $comments = Comment::all();
+        return view('admin.comments',compact('comments'));    	
+    }
+    public function deleteComment($id){
+        $comment = Comment::where('id',$id)->first();
+        $comment->delete();
+        return back();
     }
 
-    public function user(){
-        return view('admin.users');    	
+    public function users(){
+        $users = User::all();
+        return view('admin.users',compact('users'));    	
+    }
+    public function editUser($id){
+        $user = User::where('id',$id)->first();
+        return view('admin.editUser',compact('user'));
+    }
+    public function editUserPost(UserUpdate $request , $id){
+        $user = User::where('id', $id)->first();
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+
+        if($request['author'] == 1){
+            $user->author = true;
+        }elseif($request['admin'] == 1){
+            $user->admin = true;
+        }
+        $user->save();
+        return back()->with('success','user updated Successfully');
+
+    }
+    public function deleteUser($id){
+        $user = User::where('id',$id)->first();
+        $user->delete();
     }
 }

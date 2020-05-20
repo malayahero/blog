@@ -1,79 +1,42 @@
 @extends('layouts.admin')
-
+@section('title')
+    Admin Comments
+@endsection
 @section('content')
-	<div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">54</span>
-                                    <span class="font-weight-light">Total Users</span>
-                                </div>
+    <div class="content">
+        <div class="card">
+                        <div class="card-header bg-light">
+                            Admin Comments
+                        </div>
 
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-people"></i>
-                                </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Post</th>
+                                        <th>Content</th>
+                                        <th>Created At</th>
+                                        <th>Action</th>
+                                    </tr>                                    
+                                    </thead>
+                                    <tbody>
+                                        @foreach($comments as $comment)
+                                    <tr>
+                                        <td>{{$comment->id}}</td>
+                                        <td class="text-nowrap"><a href="{{route('singlePost',$comment->id)}}">{{$comment->post->title}}</a></td>
+                                        <td>{{$comment->content}}</td>
+                                        <td>{{\Carbon\Carbon::parse($comment->created_at)->diffForHumans()}}</td>
+                                        <td>
+                                       <form method="POST" id="deleteComment-{{$comment->id}}" action="{{route('adminDeleteComment',$comment->id)}}">@csrf</form>
+                                   <button type="button" class="btn btn-danger" onclick="document.getElementById('deleteComment-{{$comment->id}}').submit()">X</button></td>
+                                    </tr>
+                                    @endforeach                                   
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">$32,400</span>
-                                    <span class="font-weight-light">Income</span>
-                                </div>
-
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-wallet"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">900</span>
-                                    <span class="font-weight-light">Downloads</span>
-                                </div>
-
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-cloud-download"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">32s</span>
-                                    <span class="font-weight-light">Time</span>
-                                </div>
-
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-clock"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row ">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                Total Users
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
 @endsection
