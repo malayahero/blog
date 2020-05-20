@@ -69,10 +69,12 @@ class AdminController extends Controller
 
         if($request['author'] == 1){
             $user->author = true;
-        }elseif($request['admin'] == 1){
+        } elseif($request['admin'] == 1){
             $user->admin = true;
         }
+
         $user->save();
+        
         return back()->with('success','user updated Successfully');
 
     }

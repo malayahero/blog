@@ -31,14 +31,14 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label for="normal-input" class="form-control-label">Name</label>
+                                            <label for="normal-input" class="form-control-label">Name:</label>
                                             <input id="normal-input" name="name" class="form-control" value="{{$user->name}}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label for="normal-input" class="form-control-label">Name</label>
+                                            <label for="normal-input" class="form-control-label">Email:</label>
                                             <input id="normal-input" name="email" type="email" class="form-control" value="{{$user->email}}">
                                         </div>
                                     </div>
@@ -48,7 +48,7 @@
                                             <label for="normal-input" class="form-control-label">Permission</label>
                                             <input type="checkbox" class="form-control" name="author" value=1 {{$user->author == true ? 'checked' : ''}}> Author
                                             <br>
-                                            <input type="checkbox" class="form-control" name="admin" value=1 {{$user->admin == true ? 'checked' : ''}}> Admin
+                                            <input type="checkbox" class="form-control" name="admin" value= 1 {{$user->admin == true ? 'checked' : ''}}> Admin
                                         </div>
                                     </div>   
 
