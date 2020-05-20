@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header bg-light">
-                                Editing Post {{$user->name}}
+                                Editing User {{$user->name}}
                             </div>
                             @if(Session::has('success'))
                             	<div class="alert alert-success">{{Session::get('success')}}</div>
@@ -32,7 +32,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="normal-input" class="form-control-label">Name:</label>
-                                            <input id="normal-input" name="name" class="form-control" value="{{$user->name}}">
+                                            <input id="normal-input" type="name" name="name" class="form-control" value="{{$user->name}}">
                                         </div>
                                     </div>
 

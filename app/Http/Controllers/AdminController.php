@@ -75,11 +75,12 @@ class AdminController extends Controller
 
         $user->save();
         
-        return back()->with('success','user updated Successfully');
+        return back()->with('success','User Updated Successfully');
 
     }
     public function deleteUser($id){
         $user = User::where('id',$id)->first();
         $user->delete();
+        return back()->with('success','User Delete Successfully');
     }
 }

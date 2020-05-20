@@ -50,4 +50,6 @@ Route::prefix('admin')->group(function(){
 	Route::get('users','AdminController@users')->name('adminUsers');
 	Route::get('users/{id}/edit','AdminController@editUser')->name('adminEditUser');
 	Route::post('users/{id}/edit','AdminController@editUserPost')->name('adminEditUserPost');
+	Route::post('users/{id}/delete','AdminController@deleteUser')->name('adminDeleteUser');
+
 });
