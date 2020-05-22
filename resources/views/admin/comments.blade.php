@@ -29,8 +29,8 @@
                                         <td>{{$comment->content}}</td>
                                         <td>{{\Carbon\Carbon::parse($comment->created_at)->diffForHumans()}}</td>
                                         <td>
-                                       <form method="POST" id="deleteComment-{{$comment->id}}" action="{{route('adminDeleteComment',$comment->id)}}">@csrf</form>
-                                   <button type="button" class="btn btn-danger" onclick="document.getElementById('deleteComment-{{$comment->id}}').submit()">X</button></td>
+                                       {{-- <form method="POST" id="deleteComment-{{$comment->id}}" action="{{route('adminDeleteComment',$comment->id)}}">@csrf</form> --}}
+                                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteComment-{{$comment->id}}" class >X</button></td>
                                     </tr>
                                     @endforeach                                   
                                     </tbody>
@@ -39,4 +39,24 @@
                         </div>
                     </div>
     </div>
+    @foreach($comments as $comment)
+    <div class="modal fade" id="deleteComment-{{$comment->id}}" tabindex="-1" role="dialog" arialabelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 style="text-align:center;" class="modal-title" id="myModalLabel">You are about to delete {{$comment->title}}</h4>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">No, keep it</button>
+                <form method="POST" id="deleteComment-{{$comment->id}}" action="{{route('adminDeleteComment',$comment->id)}}">@csrf        
+            <button type="submit" class="btn btn-primary">Yes, Delete it.</button>
+        </form>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    @endforeach
 @endsection

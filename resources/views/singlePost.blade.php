@@ -35,6 +35,19 @@
         <hr />
         @endforeach
         <hr />
+        @if(Auth::check())
+          <form method="POST" action="{{route('newComment')}}">
+            @csrf
+            <div class="form-group">
+              <textarea class="form-control" placeholder="Comment ..." name="comment" id="" cols="30" rows="4"></textarea>
+              <input type="hidden" name="post" value="{{$post->id}}">
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Make Comment</button>
+            </div>
+          </form>
+        @endif
      </div>
     </div>
   </article>

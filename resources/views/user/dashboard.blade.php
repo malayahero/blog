@@ -35,15 +35,20 @@
                     </div>
                 </div>
 
-                <div class="row ">
+                <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                Total Users
+                                Total Post
+                            </div>
+
+                            <div class="card-body p-0">
+                                {!! $chart->container() !!}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        {!! $chart->script() !!}
 @endsection
