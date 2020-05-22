@@ -8,7 +8,7 @@ class PublicController extends Controller
 {
     //
     public function index(){
-        $posts = Post::all(); 
+        $posts = Post::paginate(2); 
     	return view('welcome',compact('posts'));
     }
     public function singlePost(Post $post){

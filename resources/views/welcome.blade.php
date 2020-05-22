@@ -40,9 +40,10 @@
         @endforeach
         <hr>
         <!-- Pager -->
-        <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-        </div>
+        {{$posts->links()}}
+       {{--  <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{{$posts->links()}}">Older Posts &rarr;</a>
+        </div> --}}
       </div>
     </div>
   </div>
