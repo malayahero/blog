@@ -63,7 +63,7 @@ class AuthorController extends Controller
         $post->content = $request['content'];
         $post->user_id = Auth::id();
         $post->save();
-        return back()->with('success','Post Is Successfully created');
+        return back()->with('success','Post is successfully created');
     }
     public function postEdit($id){
         $post = Post::where('id',$id)->where('user_id',Auth::id())->first();
@@ -74,7 +74,7 @@ class AuthorController extends Controller
         $post->title = $request['title'];
         $post->content = $request['content'];
         $post->save();
-        return back()->with('success','Post Is Successfully edit');
+        return back()->with('success','Post is successfully edit');
     }
     public function deletePost($id){
         $post = Post::where('id',$id)->where('user_id',Auth::id())->first();
