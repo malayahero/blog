@@ -28,6 +28,7 @@
                             <i class="icon icon-paper-clip"></i> Posts
                         </a>
                     </li>
+                    
                     <li class="nav-item nav-dropdown">
                         <a href="{{route('authorComments')}}" class="nav-link {{route::currentRouteName() == 'authorComments' ? 'active' : ""}}">
                             <i class="icon icon-book-open"></i> Comments
@@ -44,6 +45,11 @@
                     <li class="nav-item nav-dropdown">
                         <a href="{{route('adminPosts')}}" class="nav-link {{route::currentRouteName() == 'adminPosts' ? 'active' : ""}}">
                             <i class="icon icon-paper-clip"></i> Posts
+                        </a>
+                    </li>
+                    <li class="nav-item nav-dropdown">
+                        <a href="{{route('adminProducts')}}" class="nav-link {{route::currentRouteName() == 'adminProducts' ? 'active' : ""}}">
+                            <i class="icon icon-basket-loaded"></i> Product
                         </a>
                     </li>
                     <li class="nav-item nav-dropdown">

@@ -11,6 +11,7 @@ use App\Post;
 use App\Comment;
 use App\User;
 use Carbon\Carbon;
+use App\Product;
 class AdminController extends Controller
 {
     //
@@ -97,9 +98,37 @@ class AdminController extends Controller
         return back()->with('success','User Updated Successfully');
 
     }
-    public function deleteUser($id){
+    public function deleteUser($id)
+    {
         $user = User::where('id',$id)->first();
         $user->delete();
         return back()->with('success','User Delete Successfully');
+    }
+
+    public function products()
+    {
+        $products = Product::all();
+        return view('admin.products',compact('products'));
+
+    }
+
+    public function newProduct()
+    {
+        return view('admin.adminNewProduct');
+    }
+
+    public function newProductPost(Request $request)
+    {
+
+    }
+
+    public function editProduct()
+    {
+        return view('admin.adminEditProduct');
+    }
+    
+    public function editProductPost(Request $request)
+    {
+
     }
 }

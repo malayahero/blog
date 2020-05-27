@@ -53,6 +53,15 @@ Route::prefix('admin')->group(function(){
 	Route::post('users/{id}/edit','AdminController@editUserPost')->name('adminEditUserPost');
 	Route::post('users/{id}/delete','AdminController@deleteUser')->name('adminDeleteUser');
 
+
+	Route::get('products','AdminController@products')->name('adminProducts');
+
+	Route::get('products/new','AdminController@newProduct')->name('adminNewProduct');
+	Route::post('products/new','AdminController@newProductPost')->name('adminNewProductPost');
+
+	Route::get('product/{id}','AdminController@editProduct')->name('adminEditProduct');
+	Route::post('product/{id}','AdminController@editProductPost')->name('adminEditProductPost');
+
 });
 Route::prefix('shop')->group(function(){
 	Route::get('/','ShopController@index')->name('shop.index');
