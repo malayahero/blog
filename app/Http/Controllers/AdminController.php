@@ -131,6 +131,9 @@ class AdminController extends Controller
         $product->price = $request['price'];
 
         $thumbnail = $request->file('thumbnail');
+        $fileName = $thumbnail->getClientOriginalName();
+        $fileExtension = $thumbnail->getClientOriginalExtension();
+        $thumbnail->move();
         $product->save();
         return back();
 
