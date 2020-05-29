@@ -27,13 +27,12 @@
                             
                             <form method="POST" action="{{route('adminNewProduct')}}" enctype="multipart/form-data">
                             	@csrf
-
                             	<div class="card-body">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="normal-input" class="form-control-label">Thumbnail</label>
-                                            <input type="file" id="normal-input" name="thumbnail" class="form-control" placeholder="Product Title">
+                                            <input type="file" id="normal-input" name="thumbnail" class="form-control">
                                         </div>
                                     </div>                                    
                                 </div>    
